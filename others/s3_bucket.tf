@@ -1,3 +1,4 @@
+#s3_bucket
 resource "aws_s3_bucket" "static_website_bucket" {
   bucket = "my-static-website-${random_string.bucket_suffix.result}"
   depends_on = [ random_string.bucket_suffix ]
