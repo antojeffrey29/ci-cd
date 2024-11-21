@@ -2,7 +2,7 @@
 resource "aws_s3_bucket" "static_website_bucket" {
   bucket = "my-static-website-${random_string.bucket_suffix.result}"
   depends_on = [ random_string.bucket_suffix ]
-  acl = "public-read"
+  //acl = "public-read"
   website {
     index_document = "index.html"
     error_document = "error.html"
