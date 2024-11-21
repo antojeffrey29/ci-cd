@@ -2,7 +2,7 @@
 resource "aws_s3_bucket" "static_website_bucket" {
   bucket = "my-static-website-${random_string.bucket_suffix.result}"
   depends_on = [ random_string.bucket_suffix ]
-  acl = "public-read"
+  //acl = "public-read"
   website {
     index_document = "index.html"
     error_document = "error.html"
@@ -33,7 +33,7 @@ resource "aws_s3_object" "index" {
   bucket = aws_s3_bucket.static_website_bucket.bucket
   key    = "index.html"
   source = "${path.module}/../src/index.html"
-  acl    = "public-read"
+  //acl    = "public-read"
   tags = {
     project = var.tag
   }
@@ -43,7 +43,7 @@ resource "aws_s3_object" "error" {
   bucket = aws_s3_bucket.static_website_bucket.bucket
   key    = "error.html"
   source = "${path.module}/../src/error.html"
-  acl    = "public-read"
+  //acl    = "public-read"
   tags = {
     project = var.tag
   }
